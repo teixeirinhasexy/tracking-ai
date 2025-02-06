@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+opencv-python
+ultralytics
+easyocr
+torch
+torchvision
+torchaudio
+paddleocr
+pillow
+websockets
+celery
+redis

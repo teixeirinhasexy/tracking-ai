@@ -1,0 +1,6 @@
+# Ignorar ficheiros grandes
+
+venv/
+
+__pycache__/
+
