@@ -1,0 +1,26 @@
+Para um sistema de rastreamento em tempo real com câmera, precisas de uma arquitetura bem otimizada. Aqui estão alguns ajustes e melhorias para garantir baixa latência e eficiência:
+1. Pipeline de Processamento em Tempo Real
+
+    Captura de Vídeo: OpenCV + GStreamer para eficiência na transmissão e decodificação.
+    Pipeline de Inferência:
+        YOLOv8: Para detectar rostos, logotipos, objetos e locais rapidamente.
+        DeepSORT: Para associar e rastrear objetos no tempo real.
+        Módulo OCR: EasyOCR para textos detectados em banners, documentos, etc.
+        CLIP: Para identificar logotipos e marcas.
+        NER + BERT: Para extrair informações textuais relevantes (nomes, locais).
+    Paralelização: Usar threads/processos para rodar diferentes inferências simultaneamente sem travar o processamento.
+
+2. Integração com Internet (Futuro)
+
+    Busca por Nome na Internet: Uma vez identificado um rosto, pode-se consultar APIs públicas (ex.: redes sociais, bancos de imagens) para tentar encontrar correspondências.
+    Geolocalização: Combinando metadados da câmera e OpenStreetMap/Nominatim para contextos de localização.
+
+3. Interface de Monitoramento
+
+    Websocket no FastAPI: Para atualizar os dados em tempo real sem precisar de refresh.
+    Dashboard React: Exibir a câmera ao vivo + overlays de tracking.
+
+4. Infraestrutura
+
+    GPU: Para garantir inferência rápida, preferencialmente com CUDA e TensorRT.
+    Redis/Celery: Caso precises de processar informações de forma assíncrona sem travar a detecção.

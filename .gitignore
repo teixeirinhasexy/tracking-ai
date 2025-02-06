@@ -1,6 +1,13 @@
-# Ignorar ficheiros grandes
-
+# Ambiente virtual
 venv/
-
 __pycache__/
 
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Dependências do Node.js
+node_modules/
